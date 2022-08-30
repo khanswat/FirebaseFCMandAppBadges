@@ -38,13 +38,11 @@ class _MainScreenState extends State<MainScreen> {
     FirebaseMessaging.instance.subscribeToTopic("Animal");
   }
 
-  void getTokenFromFirestore() async {
-
-  }
-
+  void getTokenFromFirestore() async {}
+//use for save token in the firebase
   void saveToken(String token) async {
     await FirebaseFirestore.instance.collection("UserTokens").doc("User1").set({
-      'token' : token,
+      'token': token,
     });
   }
 
@@ -54,14 +52,12 @@ class _MainScreenState extends State<MainScreen> {
         Uri.parse('https://fcm.googleapis.com/fcm/send'),
         headers: <String, String>{
           'Content-Type': 'application/json',
-          'Authorization': 'key=AAAA9xPglTQ:APA91bEuI1Hg2Mw6dLpBuh2bDvJfgcYOUm_rEUhq3glaPRzICYtTUQEG6iFF1r_EeWx3B_wC9sTDVxk0x1PYgcSh-N9Di4qG-GNF3LVDjhc9F5B_cfEqvdky-Rc1ILwdAc1oqtB5Ho8v',
+          'Authorization':
+              'key=AAAA3-fBQmY:APA91bHzaoeXjO6_qZ0XmFsIfk1Sp5TRthQrblpzgMDgFDtTWlltK7EHnrMqwCGsQYEhQRdWtGSTZb47rsCwY3_6Hs_PVshoZi0lX_7grUmoIo5tMzO85qQ29TGnUWigwJ3lfAUq_l9s',
         },
         body: jsonEncode(
           <String, dynamic>{
-            'notification': <String, dynamic>{
-              'body': body,
-              'title': title
-            },
+            'notification': <String, dynamic>{'body': body, 'title': title},
             'priority': 'high',
             'data': <String, dynamic>{
               'click_action': 'FLUTTER_NOTIFICATION_CLICK',
@@ -78,15 +74,13 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   void getToken() async {
-    await FirebaseMessaging.instance.getToken().then(
-            (token) {
-              setState(() {
-                mtoken = token;
-              });
+    await FirebaseMessaging.instance.getToken().then((token) {
+      setState(() {
+        mtoken = token;
+      });
 
-              saveToken(token!);
-            }
-    );
+      saveToken(token!);
+    });
   }
 
   void requestPermission() async {
@@ -104,7 +98,8 @@ class _MainScreenState extends State<MainScreen> {
 
     if (settings.authorizationStatus == AuthorizationStatus.authorized) {
       print('User granted permission');
-    } else if (settings.authorizationStatus == AuthorizationStatus.provisional) {
+    } else if (settings.authorizationStatus ==
+        AuthorizationStatus.provisional) {
       print('User granted provisional permission');
     } else {
       print('User declined or has not accepted permission');
@@ -126,13 +121,34 @@ class _MainScreenState extends State<MainScreen> {
               channel.name,
               // TODO add a proper drawable resource to android, for now using
               //      one that already exists in example app.
-              icon: 'launch_background',
+              color: Colors.blue,
+              styleInformation: DefaultStyleInformation(true, true),
+              largeIcon: DrawableResourceAndroidBitmap('ic_launcher'),
+              playSound: true,
+              channelShowBadge: true,
+              autoCancel: true,
+              icon: 'ic_launcher',
             ),
           ),
         );
       }
     });
   }
+  //  if (notification != null && android != null) {
+  //       flutterLocalNotificationsPlugin.show(
+  //           notification.hashCode,
+  //           notification.title,
+  //           notification.body,
+  //           NotificationDetails(
+  //             android: AndroidNotificationDetails(
+  //               channel.id,
+  //               channel.name,
+  //               color: Colors.blue,
+  //               playSound: true,
+  //               icon: '@mipmap/ic_launcher',
+  //             ),
+  //           ));
+  //     }
 
   void loadFCM() async {
     if (!kIsWeb) {
@@ -151,7 +167,7 @@ class _MainScreenState extends State<MainScreen> {
       /// default FCM channel to enable heads up notifications.
       await flutterLocalNotificationsPlugin
           .resolvePlatformSpecificImplementation<
-          AndroidFlutterLocalNotificationsPlugin>()
+              AndroidFlutterLocalNotificationsPlugin>()
           ?.createNotificationChannel(channel);
 
       /// Update the iOS foreground notification presentation options to allow
@@ -187,11 +203,15 @@ class _MainScreenState extends State<MainScreen> {
                 String titleText = title.text;
                 String bodyText = body.text;
 
-                if(name != "") {
-                  DocumentSnapshot snap =
-                  await FirebaseFirestore.instance.collection("UserTokens").doc(name).get();
+                if (name != "") {
+                  DocumentSnapshot snap = await FirebaseFirestore.instance
+                      .collection("UserTokens")
+                      .doc(name)
+                      .get();
 
-                  String token = snap['token'];
+                  String token =
+                      "cneDpyGdRY6KqVqdThclU-:APA91bGzdMXzox7iaQQxuD9Xsym8bgVnb7aOotOubIecuSZWv-n0z1Xxq8gcXdx8ey7RzTYry1hPEW2pT42iwSYee10medX9WtEb8NFewRPkry5-u5Xd6X16ABtkSj4JS62T4FRipmly";
+
                   print(token);
 
                   sendPushMessage(token, titleText, bodyText);
@@ -201,6 +221,12 @@ class _MainScreenState extends State<MainScreen> {
                 height: 40,
                 width: 200,
                 color: Colors.red,
+                child: Center(
+                  child: Text(
+                    "Send",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
               ),
             ),
           ],

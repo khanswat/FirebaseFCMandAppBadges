@@ -1,0 +1,4 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/bytx/fcmflutter/fcmflutter/BuildConfig.java
+ com.bytx.fcmflutter.fcmflutter.BuildConfig

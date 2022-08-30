@@ -1,6 +1,6 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=D:\AndroidStudioProjects\flutter
-FLUTTER_APPLICATION_PATH=D:\AndroidStudioProjects\FlutterApplications\bytx\fcmflutter
+FLUTTER_ROOT=D:\flutter
+FLUTTER_APPLICATION_PATH=D:\firebase test project\nnnnnooottiiffaaccttiioonn\flutterfcm2
 COCOAPODS_PARALLEL_CODE_SIGN=true
 FLUTTER_TARGET=lib\main.dart
 FLUTTER_BUILD_DIR=build

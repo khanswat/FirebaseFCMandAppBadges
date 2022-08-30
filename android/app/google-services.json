@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "1061190407476",
-    "project_id": "fcmtestflutter-c30c2",
-    "storage_bucket": "fcmtestflutter-c30c2.appspot.com"
+    "project_number": "961665909350",
+    "project_id": "fccm-notif",
+    "storage_bucket": "fccm-notif.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1061190407476:android:84bca116bfcdafe0d80161",
+        "mobilesdk_app_id": "1:961665909350:android:029f3075d93ba4e37de3a7",
         "android_client_info": {
           "package_name": "com.bytx.fcmflutter.fcmflutter"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1061190407476-tg5qemnhddhf0aa3lspc1qpljof55jm6.apps.googleusercontent.com",
+          "client_id": "961665909350-p0rgu6d26v3hvb357ltrodk3fsb9ee9u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bytx.fcmflutter.fcmflutter",
+            "certificate_hash": "054362978e80b7a30b1aba08920afff4e6e546e6"
+          }
+        },
+        {
+          "client_id": "961665909350-v0uluj3va3atjq2327l9epekk8ddcaca.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDL-c326UyUWPR7SmM6-kPuK7XKQXeCzgo"
+          "current_key": "AIzaSyAkcEdFVGFcf5ybomomPkLIe8tR_aeTEIQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1061190407476-tg5qemnhddhf0aa3lspc1qpljof55jm6.apps.googleusercontent.com",
+              "client_id": "961665909350-v0uluj3va3atjq2327l9epekk8ddcaca.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
